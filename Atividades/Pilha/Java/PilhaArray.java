@@ -25,6 +25,17 @@ public class PilhaArray implements IPilha{
 	}
 
 	public void push(Object obj) {
+		if(index == Elementos.length-1) {
+			System.out.println("Pilha cheia!\nDobrando o tamanho...");
+			
+			Object ElementosAux[] = Elementos;
+			Elementos = new Object[index*2];
+			
+			for (int i = 0; i <= index; i++) {
+				Elementos[i] = ElementosAux[i];
+			}
+		}
+
 		Elementos[++index] = obj;
 	}
 
