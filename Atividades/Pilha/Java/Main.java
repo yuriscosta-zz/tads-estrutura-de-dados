@@ -1,6 +1,6 @@
 public class Main {
 	public static void main(String[] args) {
-		PilhaArray pilha = new PilhaArray(3);
+		PilhaArray pilha = new PilhaArray(3, 1);
 		
 		pilha.push(1);
 		System.out.println("Topo");
@@ -20,13 +20,19 @@ public class Main {
 		
 		System.out.println(pilha.isEmpty());
 		
-		System.out.println("Exibindo os valores");
-		pilha.show();
-		
 		System.out.println("Apagando");
 		System.out.println(pilha.pop());
 
-		System.out.println("Exibindo os valores");
-		pilha.show();
+		System.out.println("Apagando");
+		System.out.println(pilha.pop());
+
+		System.out.println("Apagando");
+		System.out.println(pilha.pop());
+
+		System.out.println("Apagando");
+		System.out.println(pilha.pop());
+		
+		System.out.println("Apagando");
+		System.out.println(pilha.pop());
 	}
 }
