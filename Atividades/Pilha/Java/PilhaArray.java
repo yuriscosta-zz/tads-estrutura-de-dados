@@ -21,12 +21,20 @@ public class PilhaArray implements IPilha{
 		return (index == -1);
 	}
 
-	public Object top() {
-		if (isEmpty()) {
+	public Object top() throws EPilhaVazia{
+		/*if (isEmpty()) {
 			return index;
 		} else {
 			return Elementos[index];
+		}*/
+		try {
+			if (isEmpty())
+				throw new EPilhaVazia("Pilha vazia!");
+		} catch (EPilhaVazia e) {
+			System.err.println("Pilha vazia!"); 
 		}
+
+		return Elementos[index];
 	}
 
 	/*
@@ -39,10 +47,10 @@ public class PilhaArray implements IPilha{
 		if(index == Elementos.length-1) {
 			Object ElementosAux[] = Elementos;
 			if (metodo == 0) {
-				System.out.println("Pilha cheia!\nDobrando o tamanho...");
+				//System.out.println("Pilha cheia!\nDobrando o tamanho...");
 				Elementos = new Object[index*2];
 			} else {
-				System.out.println("Pilha cheia!\nAumentando o tamanho em 5...");
+				//System.out.println("Pilha cheia!\nAumentando o tamanho em 5...");
 				Elementos = new Object[index+CONST];
 			}
 
@@ -55,14 +63,26 @@ public class PilhaArray implements IPilha{
 	}
 
 	public Object pop() {
-		if (isEmpty()) {
+		/*if (isEmpty()) {
 			return index;
 		} else {
 			Object temp = Elementos[index];
 			Elementos[index] = null;
 			index -= 1;
 			return temp;				
+		}*/
+		
+		try {
+			if (isEmpty())
+				throw new EPilhaVazia("Pilha vazia!");
+		} catch (EPilhaVazia e) {
+			System.err.println("Pilha vazia!"); 
 		}
+		
+		Object temp = Elementos[index];
+		Elementos[index] = null;
+		index -= 1;
+		return temp;
 	}
 
 	public void show() {

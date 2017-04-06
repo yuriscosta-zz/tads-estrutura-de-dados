@@ -1,11 +1,11 @@
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws EPilhaVazia{
 		PilhaArray pilha = new PilhaArray(3, 1);
 		
 		pilha.push(1);
 		System.out.println("Topo");
 		System.out.println(pilha.top());
-
+		
 		pilha.push(2);
 		System.out.println("Topo");
 		System.out.println(pilha.top());
