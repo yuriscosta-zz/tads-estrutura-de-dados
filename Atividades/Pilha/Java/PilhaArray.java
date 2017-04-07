@@ -21,18 +21,9 @@ public class PilhaArray implements IPilha{
 		return (index == -1);
 	}
 
-	public Object top() throws EPilhaVazia{
-		/*if (isEmpty()) {
-			return index;
-		} else {
-			return Elementos[index];
-		}*/
-		try {
-			if (isEmpty())
-				throw new EPilhaVazia("Pilha vazia!");
-		} catch (EPilhaVazia e) {
-			System.err.println("Pilha vazia!"); 
-		}
+	public Object top() throws EPilhaVazia {
+		if (isEmpty())
+			throw new EPilhaVazia("Pilha está vazia!");
 
 		return Elementos[index];
 	}
@@ -40,7 +31,7 @@ public class PilhaArray implements IPilha{
 	/*
 	* Recebe o valor a ser inserido e uma opcao de 
 	* aumento da pilha
-	* se a opcao == 0 entao aumenta constantemente
+	* se a opcao == 0 entao aum}enta constantemente
 	* se a opcao != 1 entao aumenta o dobro
 	*/
 	public void push(Object obj) {
@@ -62,22 +53,10 @@ public class PilhaArray implements IPilha{
 		Elementos[++index] = obj;
 	}
 
-	public Object pop() {
-		/*if (isEmpty()) {
-			return index;
-		} else {
-			Object temp = Elementos[index];
-			Elementos[index] = null;
-			index -= 1;
-			return temp;				
-		}*/
-		
-		try {
-			if (isEmpty())
-				throw new EPilhaVazia("Pilha vazia!");
-		} catch (EPilhaVazia e) {
-			System.err.println("Pilha vazia!"); 
-		}
+	public Object pop() throws EPilhaVazia {
+		if (isEmpty()) {
+			throw new EPilhaVazia("Pilha está vazia!");
+		}				
 		
 		Object temp = Elementos[index];
 		Elementos[index] = null;
