@@ -5,12 +5,23 @@ public class PilhaArray implements IPilha{
 	private int index = -1;
 	// Metodo de aumento do array
 	private int metodo;
-	//Constante para aumento do tamanhp
-	static final int CONST = 5;
+	//Constante para aumento do tamanho
+	private int constante = 5;
+
+	public PilhaArray(int tamanho) {
+		Elementos = new Object[tamanho];
+		this.metodo = 0;
+	}
 
 	public PilhaArray(int tamanho, int metodo) {
 		Elementos = new Object[tamanho];
 		this.metodo = metodo;
+	}
+
+	public PilhaArray(int tamanho, int metodo, int tamanho_const) {
+		Elementos = new Object[tamanho];
+		this.metodo = metodo;
+		this.constante = tamanho_const;
 	}
 
 	public int size() {
@@ -39,11 +50,11 @@ public class PilhaArray implements IPilha{
 			Object ElementosAux[] = Elementos;
 			
 			if (metodo == 0) {
-				System.out.println("Pilha cheia!\nDobrando o tamanho...");
+				//System.out.println("Pilha cheia!\nDobrando o tamanho...");
 				Elementos = new Object[(index+1)*2];
 			} else {
-				System.out.println("Pilha cheia!\nAumentando o tamanho em 5...");
-				Elementos = new Object[index+CONST+1];
+				//System.out.println("Pilha cheia!\nAumentando o tamanho em " + constante + "...");
+				Elementos = new Object[index+constante+1];
 			}
 
 			for (int i = 0; i <= index; i++) {
@@ -65,9 +76,18 @@ public class PilhaArray implements IPilha{
 		return temp;
 	}
 
-	public void show() {
-		for (int i = 0; i <= index; i++) {
-			System.out.println(Elementos[i]);
+	public void empty() {
+		Elementos = null;
+		index = -1;	
+	}
+
+	public void show() throws EPilhaVazia {
+		if (isEmpty()) {
+			throw new EPilhaVazia("Pilha está vazia!");
+		} else {
+			for (int i = 0; i <= index; i++) {
+				System.out.println(Elementos[i]);
+			}
 		}
 	}
 }
