@@ -12,8 +12,6 @@ package pilharubronegra;
 public class Pilha implements IPilha {
 
     private Object Elementos[];
-    //private Object ElementosPreta[];
-    //private Object ElementosVermelha[];
 
     private int indexTotal = -1;
     private int indexVermelha = -1;
@@ -135,26 +133,5 @@ public class Pilha implements IPilha {
             }
         }
     }
-
-    /*
-    public void showPreta() throws EPilhaVazia {
-        if (isEmpty()) {
-            throw new EPilhaVazia("Pilha está Vazia!");
-        } else {
-            for (Object o : ElementosPreta) {
-                System.out.println(o);
-            }
-        }
-    }
     
-    public void showVermelha() throws EPilhaVazia {
-        if (isEmpty()) {
-            throw new EPilhaVazia("Pilha está Vazia!");
-        } else {
-            for (Object o : ElementosVermelha) {
-                System.out.println(o);
-            }
-        }
-    }
-     */
 }
