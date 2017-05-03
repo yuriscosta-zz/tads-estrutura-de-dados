@@ -15,6 +15,8 @@ public class Fila implements IFila {
     private int inicio = 0;
     private int fim = inicio;
     private int tamanho;
+    private int metodo;
+    private int constante = 10;
 
     /**
      *
@@ -23,6 +25,13 @@ public class Fila implements IFila {
     public Fila(int tamanho) {
         fila = new Object[tamanho];
         this.tamanho = tamanho;
+        this.metodo = 0;
+    }
+
+    public Fila(int tamanho, int metodo) {
+        fila = new Object[tamanho];
+        this.tamanho = tamanho;
+        this.metodo = metodo;
     }
 
     /**
@@ -59,12 +68,30 @@ public class Fila implements IFila {
     /**
      *
      * @param obj
-     * @throws fila.EFilaCheia @throws EFilaVazia
      */
     @Override
-    public void enfileirar(Object obj) throws EFilaCheia {
+    public void enfileirar(Object obj) {
         if (tamanho() == tamanho - 1) {
-            throw new EFilaCheia("A fila está cheia!");
+
+            Object aux[];
+            if (metodo == 0) {
+                aux = new Object[tamanho + constante];
+            } else {
+                aux = new Object[tamanho * 2];
+            }
+
+            int tam_aux = aux.length;
+            int fim_aux = 0;
+
+            for (int i = 0; i < tamanho - 1; i++, inicio++) {
+                aux[i] = fila[inicio % tamanho];
+                fim_aux = (fim_aux + 1) % tam_aux;
+            }
+
+            fila = aux;
+            inicio = fim_aux;
+            fim = (fim_aux + 1) % tamanho;
+            tamanho = tam_aux;
         }
 
         fila[fim] = obj;
@@ -86,8 +113,7 @@ public class Fila implements IFila {
         inicio = (inicio + 1) % tamanho;
         return aux;
     }
-    
-    
+
     public void exibirFila() {
         System.out.println("---------------------");
         for (Object obj : fila) {

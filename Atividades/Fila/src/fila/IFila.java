@@ -33,10 +33,8 @@ public interface IFila {
     /**
      *
      * @param obj
-     * @throws fila.EFilaCheia @throws EFilaVazia
      */
-    public void enfileirar(Object obj)
-            throws EFilaCheia;
+    public void enfileirar(Object obj);
 
     /**
      *
