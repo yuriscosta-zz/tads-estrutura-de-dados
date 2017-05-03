@@ -19,19 +19,19 @@ public class Main {
     public static void main(String[] args) throws EFilaCheia, EFilaVazia {
         Fila fila = new Fila(5, 1);
 
-        System.out.println("Fila está vazia? " + fila.isEmpty());
+        //System.out.println("Fila está vazia? " + fila.isEmpty());
 
-        for (int i = 0; i < 9; i++) {
-            System.out.println("Inserindo o " + (i + 1) + "º elemento");
+        for (int i = 0; i < 20; i++) {
+            //System.out.println("Inserindo o " + (i + 1) + "º elemento");
             fila.enfileirar(i);
             fila.exibirFila();
         }
 
-        System.out.println("Fila está vazia? " + fila.isEmpty());
+        /*System.out.println("Fila está vazia? " + fila.isEmpty());
         System.out.println("Tamanho da fila: " + fila.tamanho());
-        System.out.println("Inicio da fila: " + fila.inicio());
+        System.out.println("Inicio da fila: " + fila.inicio());*/
 
-        fila.exibirFila();
+        //fila.exibirFila();
         
         /*for (int i = 0; i < 7; i++) {
             System.out.println("Removendo o " + fila.inicio() + "");

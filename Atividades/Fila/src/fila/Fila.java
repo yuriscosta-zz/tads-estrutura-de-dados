@@ -82,15 +82,16 @@ public class Fila implements IFila {
 
             int tam_aux = aux.length;
             int fim_aux = 0;
+            int i;
 
-            for (int i = 0; i < tamanho - 1; i++, inicio++) {
+            for (i = 0; i < tamanho - 1; i++, inicio++) {
                 aux[i] = fila[inicio % tamanho];
-                fim_aux = (fim_aux + 1) % tam_aux;
+                fim_aux++;
             }
-
+ 
             fila = aux;
-            inicio = fim_aux;
-            fim = (fim_aux + 1) % tamanho;
+            inicio = 0;
+            fim = i;
             tamanho = tam_aux;
         }
 
