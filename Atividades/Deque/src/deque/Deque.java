@@ -18,23 +18,12 @@ public class Deque implements IDeque {
     private int metodo;
     private int constante = 5;
 
-    /**
-     *
-     * @param tamanho
-     * @param metodo
-     */
     public Deque(int tamanho, int metodo) {
         deque = new Object[tamanho];
         this.tamanho = tamanho;
         this.metodo = metodo;
     }
 
-    /**
-     *
-     * @param tamanho
-     * @param metodo
-     * @param constante
-     */
     public Deque(int tamanho, int metodo, int constante) {
         deque = new Object[tamanho];
         this.tamanho = tamanho;
@@ -87,18 +76,18 @@ public class Deque implements IDeque {
             for (i = 0; i < tamanho - 1; i++, inicio++) {
                 aux[i] = deque[inicio % tamanho];
             }
-            
+
             deque = aux;
             inicio = 0;
             tamanho = tam_aux;
         }
-        
+
         Object aux[] = new Object[tamanho];
         aux[0] = obj;
         for (int i = 1; i < tamanho - 1; i++) {
-            aux[i] = deque[i-1];
+            aux[i] = deque[i - 1];
         }
-         
+
         deque = aux;
         fim = (fim + 1) % tamanho;
     }
@@ -149,8 +138,8 @@ public class Deque implements IDeque {
             throw new EDequeVazio("O Deque está vazio!");
         }
 
-        Object aux = deque[fim-1];
-        deque[fim-1] = null;
+        Object aux = deque[fim - 1];
+        deque[fim - 1] = null;
         fim = (fim - 1) % tamanho;
         return aux;
     }
