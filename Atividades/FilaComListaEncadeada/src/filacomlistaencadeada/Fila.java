@@ -39,7 +39,7 @@ public class Fila {
     }
 
     public boolean estaVazia() {
-        return (inicio == null);
+        return (qtdElementos == 0);
     }
 
     public void inserir(Object obj) {
@@ -61,11 +61,12 @@ public class Fila {
             throw new EFilaVazia("A fila está vazia!");
         }
         
-        Object aux = inicio.getElemento();
-        inicio = inicio.proximo;
+        No aux = inicio;
+        inicio = inicio.proximo;       
+        aux.proximo = null;
         qtdElementos--;
         
-        return aux;
+        return aux.getElemento();
     }
 
     public void exibir() throws EFilaVazia {

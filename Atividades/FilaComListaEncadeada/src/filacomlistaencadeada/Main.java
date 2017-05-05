@@ -22,12 +22,11 @@ public class Main {
         fila.exibir();
         
         System.out.println("Elemento removido: " + fila.remover());
-        fila.exibir();
+        System.out.println("Elemento removido: " + fila.remover());
+        System.out.println("Elemento removido: " + fila.remover());
         
-        System.out.println("Elemento removido: " + fila.remover());
+        fila.inserir(4);
         fila.exibir();
-          
         System.out.println("Elemento removido: " + fila.remover());
-        fila.exibir();       
     }
 }
