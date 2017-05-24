@@ -38,4 +38,6 @@ public interface ISequencia {
     
     public No remove(No no);
     
+    public No atRank(int rank);
+    
 }

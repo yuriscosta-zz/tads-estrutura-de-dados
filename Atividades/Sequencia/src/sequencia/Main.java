@@ -5,6 +5,8 @@
  */
 package sequencia;
 
+import javax.smartcardio.ATR;
+
 /**
  *
  * @author yurih
@@ -58,6 +60,18 @@ public class Main {
         no9.setElement(9);
         seq.insertAfter(no3, no9);       
         
+        /*No cont = seq.first();
+        while(cont != null) {
+            System.out.println(cont.getElement());
+            cont = cont.getAfter();
+        }*/
+        
+        System.out.println("---------------------");
+        
+        seq.remove(no3);
+        seq.remove(seq.first());
+        seq.remove(no9);
+        
         No cont = seq.first();
         while(cont != null) {
             System.out.println(cont.getElement());
@@ -66,18 +80,17 @@ public class Main {
         
         System.out.println("---------------------");
         
-        seq.remove(no3);
-        seq.remove(seq.first());
-        seq.remove(no9);
-        
-        cont = seq.first();
-        while(cont != null) {
-            System.out.println(cont.getElement());
-            cont = cont.getAfter();
-        }
-        
-        System.out.println(seq.first().getElement());    
-        System.out.println(seq.last().getElement());
+         /*System.out.println(seq.rankOf(no1));
+         System.out.println(seq.rankOf(no6));
+         System.out.println(seq.rankOf(no2));
+         System.out.println(seq.rankOf(no5));
+         System.out.println(seq.rankOf(no4));
+         System.out.println(seq.rankOf(no7));*/
+         
+         for (int i = 0; i < seq.size(); i++) {
+             System.out.println(seq.atRank(i).getElement());
+         }
+         
     }
 
 }

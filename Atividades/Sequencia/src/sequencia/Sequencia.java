@@ -5,6 +5,9 @@
  */
 package sequencia;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author yurih
@@ -144,4 +147,53 @@ public class Sequencia implements ISequencia {
         return aux;
     }
 
+    @Override
+    public No atRank(int rank) {
+        No no = first;
+        /*if (rank <= size() / 2) {
+            no = first;
+            int cont = 0;
+            while (cont < rank) {
+                no = no.getAfter();
+                cont++;
+            }
+        } else {
+            no = last;
+            if (rank != size() - 1) {
+                no = last;
+                int cont = size() - 1;
+                while (cont > rank) {
+                    no = no.getBefore();
+                    cont--;
+                }
+            }
+        }*/
+
+        if (rank == size() - 1) {
+            return last;
+        } else if (rank == 0) {
+            return first;
+        } else {
+            for (int i = 0; i < rank; i++) {
+                no = no.getAfter();
+            }
+        }
+
+        return no;
+    }
+
+    public int rankOf(No no) {
+        No aux_no = first;
+        int rank = 0;
+        while (aux_no != no && aux_no != null) {
+            aux_no = aux_no.getAfter();
+            rank++;
+        }
+
+        return rank;
+    }
+    
+    public void replaceAtRank(int rank, Object object) {
+        
+    }
 }
