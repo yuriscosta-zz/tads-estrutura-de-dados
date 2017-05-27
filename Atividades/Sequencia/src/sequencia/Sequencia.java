@@ -149,37 +149,7 @@ public class Sequencia implements ISequencia {
 
     @Override
     public No atRank(int rank) {
-        No no = first;
-        /*if (rank <= size() / 2) {
-            no = first;
-            int cont = 0;
-            while (cont < rank) {
-                no = no.getAfter();
-                cont++;
-            }
-        } else {
-            no = last;
-            if (rank != size() - 1) {
-                no = last;
-                int cont = size() - 1;
-                while (cont > rank) {
-                    no = no.getBefore();
-                    cont--;
-                }
-            }
-        }*/
-
-        if (rank == size() - 1) {
-            return last;
-        } else if (rank == 0) {
-            return first;
-        } else {
-            for (int i = 0; i < rank; i++) {
-                no = no.getAfter();
-            }
-        }
-
-        return no;
+        //TODO
     }
 
     public int rankOf(No no) {
