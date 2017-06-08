@@ -15,7 +15,7 @@ public class Arvore implements IArvore {
     private int length;
 
     public void Arvore() {
-
+        
     }
 
     @Override
@@ -23,11 +23,17 @@ public class Arvore implements IArvore {
         return length;
     }
 
-    @Override
+    /*@Override
     public int heigth(No no) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-
-    }
+        if (isExternal(no)) {
+            return 0;
+        }
+        
+        int h = 0;
+        for(No node : no.getChild()) {
+            
+        }
+    }*/
 
     @Override
     public boolean isEmpty() {
@@ -54,9 +60,13 @@ public class Arvore implements IArvore {
         return no.getParent();
     }
 
-    @Override
-    public void children(No no) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public No children(No no) {
+        Object children[] = (Object[]) no.getChildren();
+        for (Object c : children) {
+            return (No) c;
+        }
+        
+        return null;
     }
 
     @Override
@@ -89,6 +99,14 @@ public class Arvore implements IArvore {
         no.setElement(obj);
 
         return aux;
+    }
+    
+    public void setRoot(No no) {
+        root = no;
+    }
+    
+    public No getRoot() {
+        return root;
     }
 
 }

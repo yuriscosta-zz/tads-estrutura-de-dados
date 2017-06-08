@@ -15,6 +15,7 @@ public class No {
     private No parent;
     private No leftSon;
     private No rightSon;
+    private Object children[];
 
     public Object getElement() {
         return element;
@@ -30,6 +31,8 @@ public class No {
 
     public void setLeftSon(No leftSon) {
         this.leftSon = leftSon;
+        this.children[0] = this.getLeftSon();
+        leftSon.setParent(this);
     }
 
     public No getRightSon() {
@@ -38,6 +41,8 @@ public class No {
 
     public void setRightSon(No rightSon) {
         this.rightSon = rightSon;
+        this.children[1] = this.getRightSon();
+        rightSon.setParent(this);
     }
 
     public No getParent() {
@@ -46,6 +51,10 @@ public class No {
 
     public void setParent(No parent) {
         this.parent = parent;
+    }
+
+    public Object getChildren() {
+        return children;
     }
 
 }

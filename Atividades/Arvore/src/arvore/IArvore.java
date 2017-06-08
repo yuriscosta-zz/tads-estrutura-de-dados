@@ -14,7 +14,7 @@ public interface IArvore {
     /* Metodos Genéricos */
     public int size();
 
-    public int heigth(No no);
+    //public int heigth(No no);
 
     public boolean isEmpty();
 
@@ -27,7 +27,7 @@ public interface IArvore {
 
     public No parent(No no);
 
-    public void children(No no);
+    //public void children(No no);
 
     /* Métodos de Consulta */
     public boolean isInternal(No no);
