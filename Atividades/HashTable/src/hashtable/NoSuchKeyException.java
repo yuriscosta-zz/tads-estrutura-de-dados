@@ -3,12 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arvorebusca;
+package hashtable;
 
 /**
  *
  * @author yuri
  */
-public class ArvoreBusca {
-   
+class NoSuchKeyException extends Exception {
+    
+    public NoSuchKeyException() {
+        super();
+    }
+    
+    public NoSuchKeyException(String message) {
+        super(message);
+    }
+    
 }
