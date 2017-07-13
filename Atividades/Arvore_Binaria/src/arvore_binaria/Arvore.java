@@ -62,7 +62,7 @@ public class Arvore implements IArvore {
         if (eRaiz(no)) {
             return 0;
         }
-        
+
         return 1 + profundidade(no.getPai());
     }
 
@@ -72,7 +72,7 @@ public class Arvore implements IArvore {
         for (Iterator<No> no = nos(); no.hasNext();) {
             valores.add(no.next().getValor());
         }
-        
+
         return valores.iterator();
     }
 
@@ -80,7 +80,7 @@ public class Arvore implements IArvore {
     public Iterator nos() {
         return nos(raiz()).iterator();
     }
-    
+
     private Vector nos(No no) {
         Vector valores = new Vector();
         valores.add(no);
@@ -90,10 +90,10 @@ public class Arvore implements IArvore {
         if (temFilhoDireito(no)) {
             valores.addAll(nos(filhoDireito(no)));
         }
-        
+
         return valores;
     }
-    
+
     @Override
     public No raiz() {
         return this.raiz;
@@ -168,9 +168,39 @@ public class Arvore implements IArvore {
         return (irmao(no) != null);
     }
 
+    public No buscar(Object chave) {
+        return buscar(chave, raiz());
+    }
+
+    public No buscar(Object chave, No no) {
+        if (eExterno(no)) {
+            return no;
+        }
+        if ((int) no.getChave() > (int) chave && temFilhoEsquerdo(no)) {
+            return buscar(chave, filhoEsquerdo(no));
+        } else if ((int) no.getChave() < (int) chave && temFilhoDireito(no)) {
+            return buscar(chave, filhoDireito(no));
+        }
+
+        return no;
+    }
+
     @Override
     public void inserir(Object chave, Object valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No pai = buscar(chave);
+
+        if ((int) pai.getChave() != (int) chave) {
+            No no = new No();
+            no.setChave(chave);
+            no.setValor(valor);
+            no.setPai(pai);
+            if ((int) pai.getChave() > (int) chave) {
+                pai.setFilho_esq(no);
+            } else {
+                pai.setFilho_dir(no);
+            }
+            this.tamanho++;
+        }
     }
 
     @Override
